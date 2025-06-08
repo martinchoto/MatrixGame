@@ -16,9 +16,5 @@ namespace MatrixGame.Models
 			Intelligence = 0;
 			Range = 1;
 		}
-		public override string ToString()
-		{
-			return $"Warrior: {Symbol} - Health: {Health}, Mana: {Mana}, Damage: {Damage}, Strength: {Strength}, Agility: {Agility}, Intelligence: {Intelligence}, Range: {Range}";
-		}
 	}
 }
