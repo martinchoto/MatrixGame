@@ -8,7 +8,7 @@ namespace MatrixGame.Models
 {
 	public class Monster : Character
 	{
-		public override char Symbol => '◙';
+		public override char Symbol => 'M';
 		public Monster()
 		{
 			Strength = Random.Shared.Next(1, 4);
