@@ -16,7 +16,7 @@ namespace MatrixGame.Database.DbModels
 		[Required]
 		public string Class { get; set; } = null!;
 
-		public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+		public DateTime CreatedAt { get; set; } = DateTime.UtcNow.ToLocalTime();
 		[NotMapped]
 		public override char Symbol => ' ';
 	}
