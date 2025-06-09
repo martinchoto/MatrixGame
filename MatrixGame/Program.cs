@@ -14,6 +14,16 @@ Dictionary<(int, int), Monster> monstersByPostion = new Dictionary<(int, int), M
 StartMenu();
 CharacterSelect();
 InGame();
+Exit();
+void Exit()
+{
+	Console.Title = Screens.Exit.ToString();
+	Console.Clear();
+	Console.WriteLine("Thank you for playing!");
+	Console.WriteLine("Press any key to exit...");
+	Console.ReadKey();
+	Environment.Exit(0);
+}
 
 void InGame()
 {
@@ -141,12 +151,7 @@ void Move()
 		case ConsoleKey.Z: newPlayerCol = playerCol - 1; newPlayerRow = playerRow + 1; break;
 		case ConsoleKey.X: newPlayerCol = playerCol + 1; newPlayerRow = playerRow + 1; break;
 		case ConsoleKey.Escape:
-			Console.WriteLine("Exiting game. Thank you for playing!");
-			Console.Title = Screens.Exit.ToString();
-			Console.Clear();
-			Console.WriteLine("Press any key to exit...");
-			Console.ReadKey();
-			Environment.Exit(0);
+			Exit();
 			return;
 		default:
 			Console.WriteLine("Invalid key! Use W/A/S/D or Q/E/Z/X to move.");
@@ -177,7 +182,6 @@ void Move()
 		Console.ReadKey();
 		return;
 	}
-	MonstersAttack();
 	MoveMonstersTowardsPlayer();
 	SpawnMonster();
 	InGame();
@@ -276,7 +280,7 @@ void CharacterSelect()
 	}
 	AddCharacterStats(character);
 	character.SetUp();
-	//AddCharToDb(character);
+	AddCharToDb(character);
 
 
 	void AddCharacterStats(Character character)
@@ -363,9 +367,10 @@ void CheckPlayerDeath()
 		Console.WriteLine("You have been defeated! Game Over.");
 		Console.WriteLine("Press any key to exit...");
 		Console.ReadKey();
-		Console.Title = Screens.Exit.ToString();
 		Console.Clear();
+		Console.Title = Screens.Exit.ToString();
 		Console.WriteLine("Thank you for playing!");
+		Environment.Exit(0);
 	}
 }
 void MatrixInit(char[,] grid)
